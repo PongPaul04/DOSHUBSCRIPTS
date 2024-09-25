@@ -1,2 +1,12 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
 if game.PlaceId == 301549746 then
-loadstring(game:HttpGet(
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/PongPaul04/COUNTER-BLOX-SCRIPTS/refs/heads/main/DosHUB"))()
+else
+    OrionLib:MakeNotification({
+        Name = "DOSHUB ERROR",
+        Content = "NOT SUPPORTED YET",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
+end
