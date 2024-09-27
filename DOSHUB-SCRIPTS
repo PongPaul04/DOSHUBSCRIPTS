@@ -2,6 +2,8 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 
 if game.PlaceId == 301549746 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/PongPaul04/COUNTERBLOXw-GUI/refs/heads/main/REYFIELD"))()
+elseif game.PlaceId == 14518422161 then
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/PongPaul04/GUNFIGHT-ARENA/refs/heads/main/SIMPLE"))()
 else
     OrionLib:MakeNotification({
         Name = "DOSHUB ERROR",
