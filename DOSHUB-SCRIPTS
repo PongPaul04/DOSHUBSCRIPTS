@@ -1,14 +1,64 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+-- Load Rayfield and create the key system first
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/SiriusSoftwareLtd/Rayfield/main/source.lua'))()
 
+local Window = Rayfield:CreateWindow({
+	Name = "CHECKING PROCESS!!!",
+    LoadingTitle = "GAME VERFICATION",
+	LoadingSubtitle = "by Sirius",
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = "DOSHUB",
+		FileName = "Big Hub"
+    },
+	KeySystem = true, -- Set this to true to use the key system
+	KeySettings = {
+		Title = "DOSHUB SCRIPT",
+		Subtitle = "Key System",
+		Note = "The method of obtaining the key will be provided soon.",
+		FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+		SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+		GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+		Key = {"https://pastebin.com/raw/Jg0r4KkD"} -- List of keys that will be accepted by the system
+	}
+})
+
+-- After key validation, continue to check PlaceId
+Rayfield:LoadConfiguration() -- Make sure Rayfield loads settings properly
+
+-- Delay to ensure key system completes before proceeding
+Rayfield:Notify({
+	Title = "Key System Verified",
+	Content = "Proceeding to check PlaceId...",
+	Duration = 1
+})
+
+wait(3) -- Give time for key verification and setup
+
+-- Check the PlaceId and load the appropriate script
 if game.PlaceId == 301549746 then
+    -- Load the script for PlaceId 301549746
     loadstring(game:HttpGet("https://raw.githubusercontent.com/PongPaul04/COUNTERBLOXw-GUI/refs/heads/main/REYFIELD"))()
 elseif game.PlaceId == 14518422161 then
-     loadstring(game:HttpGet("https://raw.githubusercontent.com/PongPaul04/GUNFIGHT-ARENA/refs/heads/main/SIMPLE"))()
+    -- Load the script for PlaceId 14518422161
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/PongPaul04/GUNFIGHT-ARENA/refs/heads/main/SIMPLE"))()
 else
-    OrionLib:MakeNotification({
-        Name = "DOSHUB ERROR",
-        Content = "NOT SUPPORTED YET",
-        Image = "rbxassetid://4483345998",
-        Time = 5
+
+-- If PlaceId doesn't match, create error tabs and display notifications after verification
+    local ERRORTab = Window:CreateTab("ERROR", 4483362458) -- Title, Image
+    local SUPPORTTab = Window:CreateTab("NOT SUPPORTED", 4483362458) -- Title, Image
+    -- If PlaceId doesn't match, display the notification
+    Rayfield:Notify({
+       Title = "PlaceId Mismatch",
+       Content = "This script does not support the current game.",
+       Duration = 6.5,
+       Image = 4483362458, -- Ensure this is a valid image ID
+       Actions = { -- Notification Buttons
+          Ignore = {
+             Name = "Okay!",
+             Callback = function(value)
+                print("The user tapped Okay!")
+             end
+          },
+       },
     })
 end
