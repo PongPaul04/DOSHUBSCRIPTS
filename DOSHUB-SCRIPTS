@@ -46,6 +46,7 @@ else
 -- If PlaceId doesn't match, create error tabs and display notifications after verification
     local ERRORTab = Window:CreateTab("ERROR", 4483362458) -- Title, Image
     local SUPPORTTab = Window:CreateTab("NOT SUPPORTED", 4483362458) -- Title, Image
+    local CONNTACTTTab = Window:CreateTab("CONTACT THE OWNER", 4483362458) -- Title, Image
     -- If PlaceId doesn't match, display the notification
     Rayfield:Notify({
        Title = "PlaceId Mismatch",
