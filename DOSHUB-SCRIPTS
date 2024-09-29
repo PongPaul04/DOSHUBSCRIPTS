@@ -49,7 +49,7 @@ else
     local CONNTACTTTab = Window:CreateTab("CONTACT THE OWNER", 4483362458) -- Title, Image
     -- If PlaceId doesn't match, display the notification
     Rayfield:Notify({
-       Title = "PlaceId Mismatch",
+       Title = "UNSUPPORTED GAME",
        Content = "This script does not support the current game.",
        Duration = 6.5,
        Image = 4483362458, -- Ensure this is a valid image ID
@@ -57,7 +57,7 @@ else
           Ignore = {
              Name = "Okay!",
              Callback = function(value)
-                print("The user tapped Okay!")
+                print("CLOSE THE GAME NOW IT MIGHT GET YOU BANNED!")
              end
           },
        },
